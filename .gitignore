@@ -1,3 +1,23 @@
 __pycache__
 .cache
 realtimesst.log
+*.log
+# Whisper Benchmark Results
+tests/*benchmark*.json
+whisper_benchmark_*.json
+*_benchmark_results_*.json
+
+# Ensure no JSON results are tracked
+tests/*.json
+
+# Backup and working copies
+*copy*.py
+*copy.py
+* copy*.py
+tests/*copy*.py
+
+# Environment variables
+.env
+
+# Aber .env.example wird versioniert
+!.env.example

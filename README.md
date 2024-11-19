@@ -187,6 +187,79 @@ If you didn't use CUDA models before, some additional steps might be needed one 
         scoop install ffmpeg
         ```    
 
+## Project Extensions
+
+### Repository Structure
+
+```
+RealtimeSTT/
+├── benchmark/               # Benchmark system (new)
+│   ├── whisper_model_benchmark.py
+│   ├── benchmark_server.py
+│   ├── visualize_benchmark.html
+│   └── README_Benchmark.md
+│
+├── tests/                  # Test implementations
+│   ├── faster_recorder.py  # Enhanced recorder implementation
+│   └── archive/           # Development versions
+│       ├── realtimestt_test_hf.py      # HuggingFace integration tests
+│       ├── realtimestt_test_usb.py     # USB audio device tests
+│       └── ...                         # Other development versions
+│
+└── docs/                  # Additional documentation
+```
+
+### Benchmark System
+
+The project includes a comprehensive benchmark system for evaluating and comparing different Whisper models:
+
+- **Model Comparison**: Systematic evaluation of different Whisper models
+- **Performance Metrics**: WER (Word Error Rate) and processing time measurements
+- **Interactive Visualization**: Web-based interface for result analysis
+- **Multi-Language Support**: Benchmarking for both English and German
+- **Environment-based Configuration**: Flexible setup via `.env` files
+
+For detailed information about the benchmark system, see [benchmark/README_Benchmark.md](benchmark/README_Benchmark.md).
+
+### Enhanced Recorder Implementation
+
+An optimized version of the audio recorder is available in the tests directory:
+
+- Improved performance through better buffer management
+- Enhanced reliability with robust error handling
+- Support for different audio input devices
+- Integration with HuggingFace Transformers
+- Advanced terminal output with Rich
+
+### Additional Dependencies
+
+The project now includes additional dependencies for extended functionality:
+
+```bash
+# Install base dependencies
+pip install -r requirements.txt
+
+# Core extensions
+pip install transformers    # HuggingFace integration
+pip install rich           # Enhanced terminal output
+pip install pynput         # Keyboard handling
+pip install scipy          # Signal processing
+
+# For benchmark system
+pip install python-dotenv python-Levenshtein flask    # Environment and benchmark server
+pip install torch torchaudio                          # PyTorch for model operations
+
+# For development
+pip install black isort pytest
+```
+
+### Documentation and Language
+
+- **Extended Documentation**: Additional documentation available in the `docs/` and `benchmark/` directories
+- **German Documentation**: Most new code and documentation is commented in German
+- **Terminal Interface**: Rich-based terminal output with real-time audio level visualization
+- **Configuration**: Environment-based configuration using `.env` files
+
 ## Quick Start
 
 Basic usage:
