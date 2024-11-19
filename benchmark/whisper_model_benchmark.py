@@ -45,9 +45,11 @@ from pathlib import Path
 import gc
 import Levenshtein  # Für String-Ähnlichkeitsberechnung
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Lade Umgebungsvariablen aus .env
-load_dotenv()
+# Lade Umgebungsvariablen aus .env im Hauptverzeichnis
+env_path = Path(__file__).resolve().parent.parent / '.env'
+load_dotenv(env_path)
 
 # Audio-Verarbeitung
 import soundfile
